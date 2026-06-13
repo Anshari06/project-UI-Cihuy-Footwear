@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/cihuy/cihuylogo.svg') }}">
     <style>
         :root { --primary: #faf9f7; --secondary: #efece5; --accent: #545350; --text-dark: #2b2b2b; --text-muted: #7a746f; --border: #e6e0da; }
         * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
