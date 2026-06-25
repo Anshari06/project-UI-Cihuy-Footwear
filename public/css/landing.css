@@ -699,13 +699,15 @@ html { scroll-behavior: smooth; }
     }
     .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .brand-card { height: 200px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
     .footer-brand { grid-column: 1 / -1; }
+    .site-footer { padding: 40px 0 24px; }
 }
 
 @media (max-width: 480px) {
     .brand-grid { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .footer-brand { grid-column: 1; }
     .product-footer { flex-direction: column; align-items: flex-start; }
     .product-actions { width: 100%; }
     .product-actions button { flex: 1; }

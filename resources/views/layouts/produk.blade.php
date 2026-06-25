@@ -109,6 +109,18 @@
 
     function toggleMobileMenu() { openSidebar(); }
 
+    function openMobileNav() {
+        document.getElementById('mobileNav').classList.add('active');
+        document.getElementById('mobileNavOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+        document.getElementById('mobileNav').classList.remove('active');
+        document.getElementById('mobileNavOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
     function openModal(index) {
         const p = products[index];
         document.getElementById('modalImage').src = document.querySelectorAll('.product-card img')[index].src;

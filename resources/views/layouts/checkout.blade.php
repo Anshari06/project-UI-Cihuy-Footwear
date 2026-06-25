@@ -336,6 +336,8 @@
                 border-top: 1px solid var(--border);
             }
             .remove-btn { position: absolute; top: 12px; right: 12px; }
+            .checkout-header .logo-text { display: none; }
+            .checkout-header .back-link { font-size: 12px; }
         }
 
         /* ============================================
