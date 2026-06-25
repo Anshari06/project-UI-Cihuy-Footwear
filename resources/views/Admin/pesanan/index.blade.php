@@ -7,6 +7,10 @@
     <h5 class="mb-0" style="color: var(--text-dark);">Pesanan ({{ $pesanan->count() }})</h5>
 </div>
 
+@if(session('success'))
+    <div class="alert alert-success" style="border-radius: 8px; font-size: 14px;">{{ session('success') }}</div>
+@endif
+
 <div class="admin-table">
     <table class="table mb-0">
         <thead>
@@ -18,7 +22,7 @@
                 <th>Status</th>
                 <th>Total</th>
                 <th>Tanggal</th>
-                <th style="width: 160px;">Aksi</th>
+                <th style="width: 140px;">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +38,7 @@
                     </td>
                     <td>{{ $p->details->count() }} produk</td>
                     <td>
-                        <span class="badge-status badge-{{ $p->status }}">{{ ucfirst($p->status) }}</span>
+                        <span class="badge-status badge-{{ $p->status }}">{{ $p->status }}</span>
                     </td>
                     <td style="font-weight: 700;">Rp {{ number_format($p->total, 0, ',', '.') }}</td>
                     <td style="font-size: 12px; color: #7a746f;">
@@ -48,11 +52,11 @@
                             @csrf
                             @method('PUT')
                             <select name="status" onchange="this.form.submit()" class="form-select form-select-sm" style="font-size: 12px; border-radius: 6px; display: inline-block; width: auto;">
-                                <option value="pending" {{ $p->status === 'pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="confirmed" {{ $p->status === 'confirmed' ? 'selected' : '' }}>Confirmed</option>
-                                <option value="shipped" {{ $p->status === 'shipped' ? 'selected' : '' }}>Shipped</option>
-                                <option value="completed" {{ $p->status === 'completed' ? 'selected' : '' }}>Completed</option>
-                                <option value="cancelled" {{ $p->status === 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                <option value="P" {{ $p->status === 'P' ? 'selected' : '' }}>P</option>
+                                <option value="CON" {{ $p->status === 'CON' ? 'selected' : '' }}>CON</option>
+                                <option value="S" {{ $p->status === 'S' ? 'selected' : '' }}>S</option>
+                                <option value="D" {{ $p->status === 'D' ? 'selected' : '' }}>D</option>
+                                <option value="C" {{ $p->status === 'C' ? 'selected' : '' }}>C</option>
                             </select>
                         </form>
                     </td>

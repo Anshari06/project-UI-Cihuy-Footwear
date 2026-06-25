@@ -111,43 +111,50 @@ class CartController extends Controller
             return response()->json(['success' => false, 'message' => 'Keranjang kosong!'], 400);
         }
 
-        $validated = $request->validate([
-            'nama_depan' => 'required|string|max:100',
-            'nama_belakang' => 'required|string|max:100',
+        $isStorePickup = $request->kurir === 'store';
+
+        $rules = [
             'email' => 'required|email',
-            'alamat' => 'required|string',
-            'provinsi' => 'required|string',
-            'kota' => 'required|string',
-            'kecamatan' => 'required|string',
-            'kelurahan' => 'required|string',
-            'kode_pos' => 'required|string|max:10',
-            'no_telp' => 'required|string|max:20',
-            'kurir' => 'nullable|string',
             'metode_pembayaran' => 'required|string',
-        ]);
+        ];
+
+        if (!$isStorePickup) {
+            $rules = array_merge($rules, [
+                'nama_depan' => 'required|string|max:100',
+                'nama_belakang' => 'required|string|max:100',
+                'alamat' => 'required|string',
+                'provinsi' => 'required|string',
+                'kota' => 'required|string',
+                'kecamatan' => 'required|string',
+                'kelurahan' => 'required|string',
+                'kode_pos' => 'required|string|max:10',
+                'no_telp' => 'required|string|max:20',
+            ]);
+        }
+
+        $validated = $request->validate($rules);
 
         $total = collect($cart)->sum(fn($item) => $item['price'] * $item['qty']);
 
-        // Generate no pesanan
-        $noPesanan = 'ORD-' . date('Ymd') . '-' . str_pad(Pesanan::count() + 1, 4, '0', STR_PAD_LEFT);
-
         $pesanan = Pesanan::create([
             'user_id' => Auth::id(),
-            'nama_depan' => $validated['nama_depan'],
-            'nama_belakang' => $validated['nama_belakang'],
+            'nama_depan' => $isStorePickup ? '-' : ($validated['nama_depan'] ?? '-'),
+            'nama_belakang' => $isStorePickup ? '-' : ($validated['nama_belakang'] ?? '-'),
             'email' => $validated['email'],
-            'alamat' => $validated['alamat'],
-            'provinsi' => $validated['provinsi'],
-            'kota' => $validated['kota'],
-            'kecamatan' => $validated['kecamatan'],
-            'kelurahan' => $validated['kelurahan'],
-            'kode_pos' => $validated['kode_pos'],
-            'no_telp' => $validated['no_telp'],
+            'alamat' => $isStorePickup ? 'Store Pickup' : ($validated['alamat'] ?? '-'),
+            'provinsi' => $isStorePickup ? '-' : ($validated['provinsi'] ?? '-'),
+            'kota' => $isStorePickup ? '-' : ($validated['kota'] ?? '-'),
+            'kecamatan' => $isStorePickup ? '-' : ($validated['kecamatan'] ?? '-'),
+            'kelurahan' => $isStorePickup ? '-' : ($validated['kelurahan'] ?? '-'),
+            'kode_pos' => $isStorePickup ? '-' : ($validated['kode_pos'] ?? '-'),
+            'no_telp' => $isStorePickup ? '-' : ($validated['no_telp'] ?? '-'),
             'kurir' => $validated['kurir'] ?? null,
             'metode_pembayaran' => $validated['metode_pembayaran'],
-            'status' => 'pending',
+            'status' => 'P',
             'total' => $total,
         ]);
+
+        $noPesanan = 'ORD-' . date('Ymd') . '-' . str_pad($pesanan->id, 4, '0', STR_PAD_LEFT);
 
         foreach ($cart as $item) {
             DetailPesanan::create([
@@ -160,7 +167,6 @@ class CartController extends Controller
             ]);
         }
 
-        // Clear cart
         session()->forget('cart');
 
         return response()->json([

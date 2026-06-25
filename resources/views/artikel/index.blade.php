@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('sections.header')
 <main class="w-100">
   <section class="py-5" style="background: #faf9f7;">
     <div class="container">

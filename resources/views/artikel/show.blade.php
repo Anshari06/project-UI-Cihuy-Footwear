@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+@include('sections.header')
 <main class="w-100" style="padding-top: 50px;">
   <section class="py-5">
     <div class="container" style="max-width: 800px;">
       <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb" style="background: transparent;">
+      <nav aria-label="breadcrumb" class="mb-4 d-flex align-items-center">
+        <a href="{{ route('artikel.index') }}" class="me-2" style="color: #7a746f; font-size: 18px; text-decoration: none;">
+          <i class="bi bi-arrow-left"></i>
+        </a>
+        <ol class="breadcrumb mb-0" style="background: transparent;">
           <li class="breadcrumb-item"><a href="{{ route('landing') }}" class="text-decoration-none" style="color: #7a746f;">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('artikel.index') }}" class="text-decoration-none" style="color: #7a746f;">Artikel</a></li>
           <li class="breadcrumb-item active" aria-current="page" style="color: #2b2b2b;">{{ $artikel->title }}</li>

@@ -7,6 +7,10 @@
     <i class="bi bi-arrow-left me-1"></i> Kembali
 </a>
 
+@if(session('success'))
+    <div class="alert alert-success" style="border-radius: 8px; font-size: 14px;">{{ session('success') }}</div>
+@endif
+
 <div class="row g-4">
     <!-- Left -->
     <div class="col-lg-8">
@@ -43,7 +47,10 @@
             <div class="p-3">
                 <div style="font-weight: 700; color: #2b2b2b; font-size: 14px;">{{ $pesanan->nama_depan }} {{ $pesanan->nama_belakang }}</div>
                 <div style="font-size: 13px; color: #7a746f; margin-bottom: 4px;">{{ $pesanan->no_telp }}</div>
-                <div style="font-size: 13px; color: #7a746f;">{{ $pesanan->alamat }}, {{ $pesanan->kelurahan }}, {{ $pesanan->kecamatan }}, {{ $pesanan->kota }}, {{ $pesanan->provinsi }} {{ $pesanan->kode_pos }}</div>
+                <div style="font-size: 13px; color: #7a746f;">{{ $pesanan->alamat }}</div>
+                @if($pesanan->alamat !== 'Store Pickup')
+                    <div style="font-size: 13px; color: #7a746f;">{{ $pesanan->kelurahan }}, {{ $pesanan->kecamatan }}, {{ $pesanan->kota }}, {{ $pesanan->provinsi }} {{ $pesanan->kode_pos }}</div>
+                @endif
             </div>
         </div>
     </div>
@@ -78,11 +85,11 @@
                 @method('PUT')
                 <div class="d-flex gap-2">
                     <select name="status" class="form-select" style="border: 1.5px solid #e6e0da; border-radius: 8px; font-size: 13px; padding: 8px 12px;">
-                        <option value="pending" {{ $pesanan->status === 'pending' ? 'selected' : '' }}>Pending</option>
-                        <option value="confirmed" {{ $pesanan->status === 'confirmed' ? 'selected' : '' }}>Confirmed</option>
-                        <option value="shipped" {{ $pesanan->status === 'shipped' ? 'selected' : '' }}>Shipped</option>
-                        <option value="completed" {{ $pesanan->status === 'completed' ? 'selected' : '' }}>Completed</option>
-                        <option value="cancelled" {{ $pesanan->status === 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                        <option value="P" {{ $pesanan->status === 'P' ? 'selected' : '' }}>P</option>
+                        <option value="CON" {{ $pesanan->status === 'CON' ? 'selected' : '' }}>CON</option>
+                        <option value="S" {{ $pesanan->status === 'S' ? 'selected' : '' }}>S</option>
+                        <option value="D" {{ $pesanan->status === 'D' ? 'selected' : '' }}>D</option>
+                        <option value="C" {{ $pesanan->status === 'C' ? 'selected' : '' }}>C</option>
                     </select>
                     <button type="submit" class="btn" style="background: #545350; color: #fff; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap;">
                         Update

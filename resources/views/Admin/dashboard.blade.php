@@ -57,9 +57,9 @@
                             <td>
                                 <span style="font-weight: 600;">ORD-{{ \Carbon\Carbon::parse($p->created_at)->format('Ymd') }}-{{ str_pad($p->id, 4, '0', STR_PAD_LEFT) }}</span>
                             </td>
-                            <td>{{ $p->user->username }}</td>
+                            <td>{{ $p->user ? $p->user->username : $p->nama_depan }}</td>
                             <td>
-                                <span class="badge-status badge-{{ $p->status }}">{{ ucfirst($p->status) }}</span>
+                                <span class="badge-status badge-{{ $p->status }}">{{ $p->status }}</span>
                             </td>
                             <td>Rp {{ number_format($p->total, 0, ',', '.') }}</td>
                             <td>{{ \Carbon\Carbon::parse($p->created_at)->locale('id')->translatedFormat('d M Y') }}</td>

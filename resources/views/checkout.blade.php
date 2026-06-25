@@ -316,16 +316,6 @@
         var select = document.getElementById('province');
         select.innerHTML = '<option selected disabled>Pilih Provinsi</option>';
         data.forEach(function(p) {
-            select.innerHTML += '<option value="' + p.name + '">' + p.name + '</option>';
-        });
-    }
-
-    async function loadProvinces() {
-        var res = await fetch('{{ route("regions.provinces") }}');
-        var data = await res.json();
-        var select = document.getElementById('province');
-        select.innerHTML = '<option selected disabled>Pilih Provinsi</option>';
-        data.forEach(function(p) {
             select.innerHTML += '<option value="' + p.id + '" data-name="' + p.name + '">' + p.name + '</option>';
         });
     }
@@ -426,6 +416,7 @@
     function submitOrder() {
         var terms = document.getElementById('termsCheck');
         var payment = document.getElementById('selectedPayment').value;
+        var delivery = document.getElementById('selectedDelivery').value;
 
         if (!payment) {
             showToast('Silakan pilih metode pembayaran terlebih dahulu.', 'warning');
@@ -434,6 +425,28 @@
         if (!terms.checked) {
             showToast('Silakan centang persetujuan Syarat & Ketentuan terlebih dahulu.', 'warning');
             return;
+        }
+
+        // Validate delivery fields if delivery method selected
+        if (delivery !== 'store') {
+            var requiredFields = [
+                { id: 'nama_depan', label: 'Nama Depan' },
+                { id: 'nama_belakang', label: 'Nama Belakang' },
+                { id: 'alamat', label: 'Alamat' },
+                { id: 'province', label: 'Provinsi' },
+                { id: 'city', label: 'Kota' },
+                { id: 'district', label: 'Kecamatan' },
+                { id: 'village', label: 'Kelurahan/Desa' },
+                { id: 'kode_pos', label: 'Kode Pos' },
+                { id: 'no_telp', label: 'Nomor Telepon' },
+            ];
+            for (var i = 0; i < requiredFields.length; i++) {
+                var el = document.getElementById(requiredFields[i].id);
+                if (!el || !el.value || el.value.trim() === '') {
+                    showToast('Silakan lengkapi field: ' + requiredFields[i].label, 'warning');
+                    return;
+                }
+            }
         }
 
         var form = document.getElementById('checkoutForm');

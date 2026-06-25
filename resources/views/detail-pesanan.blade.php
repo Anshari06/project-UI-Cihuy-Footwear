@@ -20,16 +20,16 @@
         <div class="col-md-3">
             <div class="detail-label">Status</div>
             <div class="status-badge status-{{ $pesanan->status }}">
-                @if($pesanan->status === 'pending')
-                    <i class="bi bi-clock me-1"></i>Pending
-                @elseif($pesanan->status === 'confirmed')
-                    <i class="bi bi-check-circle me-1"></i>Dikonfirmasi
-                @elseif($pesanan->status === 'shipped')
-                    <i class="bi bi-truck me-1"></i>Dikirim
-                @elseif($pesanan->status === 'completed')
-                    <i class="bi bi-bag-check me-1"></i>Selesai
-                @elseif($pesanan->status === 'cancelled')
-                    <i class="bi bi-x-circle me-1"></i>Dibatalkan
+                @if($pesanan->status === 'P')
+                    <i class="bi bi-clock me-1"></i>P
+                @elseif($pesanan->status === 'CON')
+                    <i class="bi bi-check-circle me-1"></i>CON
+                @elseif($pesanan->status === 'S')
+                    <i class="bi bi-truck me-1"></i>S
+                @elseif($pesanan->status === 'D')
+                    <i class="bi bi-bag-check me-1"></i>D
+                @elseif($pesanan->status === 'C')
+                    <i class="bi bi-x-circle me-1"></i>C
                 @endif
             </div>
         </div>
@@ -69,6 +69,7 @@
         </div>
 
         <!-- Address -->
+        @if($pesanan->alamat !== 'Store Pickup')
         <div class="bg-white rounded-3 border" style="border-color: #e6e0da;">
             <div class="p-4 border-bottom" style="border-color: #e6e0da !important;">
                 <h5 class="fw-bold mb-0" style="color: #2b2b2b;">Alamat Pengiriman</h5>
@@ -80,6 +81,17 @@
                 <div style="color: #7a746f; font-size: 13px;">{{ $pesanan->kelurahan }}, {{ $pesanan->kecamatan }}, {{ $pesanan->kota }}, {{ $pesanan->provinsi }} {{ $pesanan->kode_pos }}</div>
             </div>
         </div>
+        @else
+        <div class="bg-white rounded-3 border p-4" style="border-color: #e6e0da;">
+            <div class="d-flex align-items-center gap-2" style="color: #27ae60;">
+                <i class="bi bi-shop" style="font-size: 24px;"></i>
+                <div>
+                    <div class="fw-bold" style="color: #2b2b2b; font-size: 14px;">Pengambilan di Toko</div>
+                    <div style="color: #7a746f; font-size: 13px;">Pesanan akan diambil di toko Cihuy Footwear.</div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 
     <!-- Right: Summary -->
@@ -135,10 +147,10 @@
     .detail-thumb img { max-width: 90%; max-height: 90%; object-fit: contain; }
     .detail-item-price { font-size: 15px; font-weight: 700; color: #2b2b2b; }
     .status-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-    .status-pending { background: #fff3cd; color: #856404; }
-    .status-confirmed { background: #d1ecf1; color: #0c5460; }
-    .status-shipped { background: #d4edda; color: #155724; }
-    .status-completed { background: #e8f5e9; color: #2e7d32; }
-    .status-cancelled { background: #f8d7da; color: #721c24; }
+    .status-P { background: #fff3cd; color: #856404; }
+    .status-CON { background: #d1ecf1; color: #0c5460; }
+    .status-S { background: #d4edda; color: #155724; }
+    .status-D { background: #e8f5e9; color: #2e7d32; }
+    .status-C { background: #f8d7da; color: #721c24; }
 </style>
 @endsection

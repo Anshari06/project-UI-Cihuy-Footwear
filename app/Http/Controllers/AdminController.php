@@ -16,7 +16,7 @@ class AdminController extends Controller
     {
         $totalPesanan = Pesanan::count();
         $totalBarang = Barang::count();
-        $pesananPending = Pesanan::where('status', 'pending')->count();
+        $pesananPending = Pesanan::where('status', 'P')->count();
         $totalRevenue = Pesanan::where('status', '!=', 'cancelled')->sum('total');
 
         return view('admin.dashboard', compact(
@@ -186,7 +186,7 @@ class AdminController extends Controller
         $pesanan = Pesanan::findOrFail($id);
 
         $validated = $request->validate([
-            'status' => 'required|in:pending,confirmed,shipped,completed,cancelled',
+            'status' => 'required|in:P,CON,S,D,C',
         ]);
 
         $pesanan->update(['status' => $validated['status']]);

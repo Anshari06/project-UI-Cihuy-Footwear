@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container py-4">
+        <!-- Back Button -->
+        <button onclick="history.back()" class="btn mb-3" style="background: #efece5; color: #2b2b2b; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; padding: 8px 16px;">
+            <i class="bi bi-arrow-left me-1"></i> Kembali
+        </button>
+
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb" style="background: transparent;">
@@ -78,7 +83,7 @@
                         style="background: #efece5; color: #2b2b2b; border: 1.5px solid #2b2b2b; border-radius: 8px; font-weight: 600; font-size: 14px;">
                         Add to Cart
                     </button>
-                    <button class="btn flex-grow-1 py-2"
+                    <button class="btn flex-grow-1 py-2" id="buyNowBtn"
                         style="background: #545350; color: #fff; border: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
                         Buy Now
                     </button>
@@ -234,6 +239,40 @@
         var data = await res.json();
         if (data.success) {
             showToast(barang.name + ' ditambahkan ke keranjang!', 'success');
+        } else {
+            showToast('Gagal menambahkan ke keranjang.', 'error');
+        }
+    });
+
+    // Buy Now
+    document.getElementById('buyNowBtn').addEventListener('click', async function() {
+        if (!selectedSize) {
+            showToast('Silakan pilih ukuran terlebih dahulu.', 'warning');
+            return;
+        }
+
+        var qty = document.getElementById('qty').value;
+
+        var res = await fetch('{{ route("cart.add") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                id: barang.id,
+                name: barang.name,
+                brand: barang.brand,
+                price: barang.price,
+                image: barang.image,
+                size: selectedSize,
+                qty: parseInt(qty)
+            })
+        });
+
+        var data = await res.json();
+        if (data.success) {
+            window.location.href = '{{ route("keranjang") }}';
         } else {
             showToast('Gagal menambahkan ke keranjang.', 'error');
         }
