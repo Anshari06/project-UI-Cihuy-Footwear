@@ -10,7 +10,7 @@ class ArticleController extends Controller
     public function index()
     {
         $artikel = Artikel::orderBy('published_at', 'desc')->get();
-        return view('artikel.index', compact('artikel'));
+        return view('pelanggan.artikel.index', compact('artikel'));
     }
 
     public function show($slug)
@@ -25,6 +25,6 @@ class ArticleController extends Controller
             $related = Artikel::where('id', '!=', $artikel->id)->take(3)->get();
         }
 
-        return view('artikel.show', compact('artikel', 'related'));
+        return view('pelanggan.artikel.show', compact('artikel', 'related'));
     }
 }

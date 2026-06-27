@@ -15,7 +15,7 @@ class CartController extends Controller
         $items = $cart;
         $total = collect($cart)->sum(fn($item) => $item['price'] * $item['qty']);
 
-        return view('keranjang', compact('items', 'total'));
+        return view('pelanggan.keranjang.index', compact('items', 'total'));
     }
 
     public function add(Request $request)
@@ -100,7 +100,7 @@ class CartController extends Controller
         $items = $cart;
         $total = collect($cart)->sum(fn($item) => $item['price'] * $item['qty']);
 
-        return view('checkout', compact('items', 'total'));
+        return view('pelanggan.keranjang.checkout', compact('items', 'total'));
     }
 
     public function processCheckout(Request $request)

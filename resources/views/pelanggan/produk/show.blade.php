@@ -101,12 +101,12 @@
                     <div class="mb-3">
                         <strong style="color: #2b2b2b; font-size: 14px;">Mengenai Ukuran:</strong>
                         <ul class="mb-0 mt-2" style="color: #7a746f; font-size: 14px; line-height: 1.8; padding-left: 18px;">
-                            <li>Selisih 1-2 cm mungkin terjadi项目建设dan proses pengembangan dan produksi.</li>
+                            <li>Selisih 1-2 cm mungkin terjadi saat proses pengembangan dan produksi.</li>
                         </ul>
                     </div>
                     <div>
                         <strong style="color: #2b2b2b; font-size: 14px;">Mengenai Warna:</strong>
-                        <p class="mb-0 mt-2" style="color: #7a746f; font-size: 14px; line-height: 1.8;">Warna sesungguhnya mungkin dapat berbeda. Hal ini项目建设 setiap layar memiliki kemampuan yang berbeda-beda untuk menampilkan warna, kami tidak dapat menjamin bahwa warna yang Anda项目建设 adalah warna akurat dari produk tersebut.</p>
+                        <p class="mb-0 mt-2" style="color: #7a746f; font-size: 14px; line-height: 1.8;">Warna sesungguhnya mungkin dapat berbeda. Hal ini disebabkan oleh setiap layar yang memiliki kemampuan yang berbeda-beda untuk menampilkan warna, kami tidak dapat menjamin bahwa warna yang Anda lihat adalah warna akurat dari produk tersebut.</p>
                     </div>
                 </div>
             </div>

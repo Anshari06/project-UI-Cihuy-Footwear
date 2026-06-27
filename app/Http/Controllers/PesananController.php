@@ -16,7 +16,7 @@ class PesananController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('history', compact('pesanan'));
+        return view('pelanggan.pesanan.index', compact('pesanan'));
     }
 
     public function show($id)
@@ -25,6 +25,6 @@ class PesananController extends Controller
             ->where('user_id', Auth::id())
             ->findOrFail($id);
 
-        return view('detail-pesanan', compact('pesanan'));
+        return view('pelanggan.pesanan.show', compact('pesanan'));
     }
 }
