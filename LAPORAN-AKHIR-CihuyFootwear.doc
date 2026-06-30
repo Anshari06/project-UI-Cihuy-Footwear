@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Python Markdown Converter">
+<title>Laporan Akhir CihuyFootwear</title>
+<style>
+body { font-family: Calibri; font-size: 11pt; color: #000; margin: 2cm; line-height: 1.5; }
+h1 { font-size: 16pt; font-weight: bold; page-break-before: always; margin-top: 24pt; }
+h2 { font-size: 13pt; font-weight: bold; page-break-before: always; margin-top: 18pt; }
+h3 { font-size: 11pt; font-weight: bold; margin-top: 14pt; }
+h4 { font-size: 11pt; font-weight: bold; }
+p { margin: 4pt 0; }
+table { border-collapse: collapse; width: 100%; margin: 8pt 0; font-size: 10pt; }
+td, th { border: 1pt solid #000; padding: 3pt 6pt; vertical-align: top; }
+th { background: #f2f2f2; font-weight: bold; }
+hr { border: none; border-top: 1pt solid #ccc; margin: 12pt 0; }
+li { margin: 2pt 0; }
+a { color: #000; }
+pre { background: #f5f5f5; border: 1pt solid #ddd; padding: 6pt; font-size: 9pt; font-family: Courier New; }
+</style>
+</head>
+<body>
+<p>LAPORAN AKHIR</p>
+<p>WORKSHOP DESAIN UI</p>
+<p>"CihuyFootwear"</p>
+<p>Muhammad Anshari Shidqi</p>
+<p>434241075</p>
+<p>FAKULTAS VOKASI</p>
+<p>UNIVERSITAS AIRLANGGA</p>
+<p>2024</p>
+<hr>
+<p>DAFTAR ISI</p>
+<p>DAFTAR ISI    ii</p>
+<p>DAFTAR GAMBAR    iii</p>
+<p>DAFTAR TABEL    iv</p>
+<p>BAB 1    1</p>
+<p>PENDAHULUAN    1</p>
+<p>1. Deskripsi Topik    1</p>
+<p>2. User Story    1</p>
+<p>3. Use Case    2</p>
+<p>4. Use Case Specification    3</p>
+<p>BAB 2    5</p>
+<p>DESAIN SISTEM    5</p>
+<p>1. Wireframe    5</p>
+<p>2. Front End    6</p>
+<p>3. Pengujian Sistem    25</p>
+<p>LAMPIRAN    26</p>
+<hr>
+<p>DAFTAR GAMBAR</p>
+<p>Gambar 1. Halaman Landing Page (Home) — Hero Section    6</p>
+<p>Gambar 2. Halaman Landing Page — Brand Recommendation    6</p>
+<p>Gambar 3. Halaman Landing Page — Featured Articles    7</p>
+<p>Gambar 4. Halaman Koleksi Produk (Catalog)    8</p>
+<p>Gambar 5. Halaman Filter Produk pada Koleksi    8</p>
+<p>Gambar 6. Halaman Detail Produk    9</p>
+<p>Gambar 7. Halaman Keranjang Belanja    10</p>
+<p>Gambar 8. Halaman Checkout — Step 1 (Pengiriman)    11</p>
+<p>Gambar 9. Halaman Checkout — Step 2 (Pembayaran)    12</p>
+<p>Gambar 10. Halaman Riwayat Pesanan (History)    13</p>
+<p>Gambar 11. Halaman Detail Pesanan Pelanggan    14</p>
+<p>Gambar 12. Halaman Artikel (Blog)    15</p>
+<p>Gambar 13. Halaman Detail Artikel    16</p>
+<p>Gambar 14. Halaman Login    17</p>
+<p>Gambar 15. Halaman Registrasi    18</p>
+<p>Gambar 16. Halaman Dashboard Admin    19</p>
+<p>Gambar 17. Halaman Kelola Produk — Daftar Produk    20</p>
+<p>Gambar 18. Halaman Kelola Produk — Tambah/Edit Produk    20</p>
+<p>Gambar 19. Halaman Kelola Artikel — Daftar Artikel    21</p>
+<p>Gambar 20. Halaman Kelola Artikel — Arsip Artikel    22</p>
+<p>Gambar 21. Halaman Kelola Pesanan Admin    23</p>
+<p>Gambar 22. Halaman Kelola Pengguna    24</p>
+<p>Gambar 23. Halaman Struktur Folder Views    25</p>
+<p>DAFTAR TABEL</p>
+<p>Tabel 1. User Story — Pelanggan    1</p>
+<p>Tabel 2. User Story — Admin    2</p>
+<p>Tabel 3. Use Case Diagram — Actor dan Fungsi    2</p>
+<p>Tabel 4. Use Case Specification — Login    3</p>
+<p>Tabel 5. Use Case Specification — Kelola Produk    3</p>
+<p>Tabel 6. Use Case Specification — Checkout    3</p>
+<p>Tabel 7. Use Case Specification — Kelola Pesanan    4</p>
+<p>Tabel 8. Struktur Database — Tabel Users    4</p>
+<p>Tabel 9. Struktur Database — Tabel Barang    4</p>
+<p>Tabel 10. Struktur Database — Tabel Pesanan    4</p>
+<p>Tabel 11. Struktur Database — Tabel Detail Pesanan    4</p>
+<p>Tabel 12. Struktur Database — Tabel Artikel    5</p>
+<p>Tabel 13. Spesifikasi Teknis Aplikasi    25</p>
+<hr>
+<p>BAB 1</p>
+<p>PENDAHULUAN</p>
+<p>CihuyFootwear adalah aplikasi e-commerce berbasis web yang dirancang untuk memenuhi kebutuhan pengelolaan dan penjualan produk sepatu secara online. Aplikasi ini menyediakan dua antarmuka utama, yaitu antarmuka pelanggan (customer-facing) yang memungkinkan pengguna untuk melihat koleksi produk, menambah ke keranjang, melakukan checkout, serta melihat riwayat pesanan, dan antarmuka admin (dashboard) yang memungkinkan administrator untuk mengelola produk, artikel, pesanan, serta pengguna secara menyeluruh.</p>
+<p>Proyek ini dibangun menggunakan framework Laravel dengan bahasa pemrograman PHP, database relasional untuk penyimpanan data, serta antarmuka pengguna yang responsif menggunakan Bootstrap 5 dan CSS kustom. Aplikasi ini mendukung autentikasi berbasis role, di mana setiap pengguna memiliki hak akses yang berbeda antara pelanggan dan administrator.</p>
+<hr>
+<p>1. Deskripsi Topik</p>
+<p>CihuyFootwear adalah sistem informasi e-commerce untuk toko sepatu yang mencakup fitur-fitur utama berikut:</p>
+<p>a. Halaman Landing Page yang menampilkan brand recommendation, produk rekomendasi, dan artikel terbaru.</p>
+<p>b. Katalog Produk dengan filter berbasis gender, brand, dan tipe sepatu.</p>
+<p>c. Detail Produk dengan informasi harga, ukuran, dan deskripsi lengkap.</p>
+<p>d. Keranjang Belanja berbasis session (session-based cart).</p>
+<p>e. Proses Checkout dua langkah: informasi pengiriman dan metode pembayaran.</p>
+<p>f. Riwayat Pesanan pelanggan.</p>
+<p>g. Dashboard Admin untuk pengelolaan produk, artikel, pesanan, dan pengguna.</p>
+<p>h. Sistem Artikel/Blog dengan fitur soft-delete (arsip).</p>
+<p>i. Sistem autentikasi dengan role-based access control (admin dan pelanggan).</p>
+<p>j. Integrasi data wilayah Indonesia (Provinsi, Kota, Kecamatan, Kelurahan) melalui API internal.</p>
+<p>Scope proyek ini mencakup pengembangan front-end dan back-end secara penuh, mulai dari desain UI/UX, implementasi logika bisnis, hingga pengujian fungsionalitas sistem.</p>
+<hr>
+<p>2. User Story</p>
+<p><strong>Tabel 1. User Story — Pelanggan</strong></p>
+<table><tr><td>ID</td><td>Sebagai</td><td>Saya ingin</td><td>Agar</td><td>Prioritas</td></tr><tr><td>US-01</td><td>Pelanggan</td><td>melihat daftar produk sepatu lengkap</td><td>bisa memilih produk yang diinginkan</td><td>High</td></tr><tr><td>US-02</td><td>Pelanggan</td><td>memfilter produk berdasarkan gender, brand, dan tipe</td><td>menemukan produk lebih cepat</td><td>High</td></tr><tr><td>US-03</td><td>Pelanggan</td><td>melihat detail produk (harga, ukuran, deskripsi)</td><td>membuat keputusan pembelian</td><td>High</td></tr><tr><td>US-04</td><td>Pelanggan</td><td>menambahkan produk ke keranjang</td><td>bisa berbelanja lebih dari satu produk</td><td>High</td></tr><tr><td>US-05</td><td>Pelanggan</td><td>memilih ukuran sebelum checkout</td><td>mendapatkan produk dengan ukuran yang sesuai</td><td>High</td></tr><tr><td>US-06</td><td>Pelanggan</td><td>memasukkan alamat pengiriman atau memilih Store Pickup</td><td>bisa memilih cara pengambilan barang</td><td>High</td></tr><tr><td>US-07</td><td>Pelanggan</td><td>memilih metode pembayaran</td><td>bisa menyelesaikan transaksi dengan nyaman</td><td>High</td></tr><tr><td>US-08</td><td>Pelanggan</td><td>melihat riwayat pesanan</td><td>melacak status pesanan</td><td>Medium</td></tr><tr><td>US-09</td><td>Pelanggan</td><td>membaca artikel tentang sepatu dan tips perawatan</td><td>mendapatkan informasi tambahan</td><td>Low</td></tr><tr><td>US-10</td><td>Pelanggan</td><td>membuat akun dan login</td><td>bisa mengakses riwayat pesanan</td><td>Medium</td></tr></table>
+<p><strong>Tabel 2. User Story — Admin</strong></p>
+<table><tr><td>ID</td><td>Sebagai</td><td>Saya ingin</td><td>Agar</td><td>Prioritas</td></tr><tr><td>US-11</td><td>Admin</td><td>login ke dashboard</td><td>bisa mengelola sistem</td><td>High</td></tr><tr><td>US-12</td><td>Admin</td><td>menambah, mengubah, dan menghapus produk</td><td>menjaga katalog produk tetap terkini</td><td>High</td></tr><tr><td>US-13</td><td>Admin</td><td>melihat daftar pesanan masuk</td><td>memproses pesanan pelanggan</td><td>High</td></tr><tr><td>US-14</td><td>Admin</td><td>mengubah status pesanan (P, CON, S, D, C)</td><td>pelanggan bisa melacak pesanan</td><td>High</td></tr><tr><td>US-15</td><td>Admin</td><td>menambah, mengubah, dan menghapus artikel</td><td>menjaga konten blog tetap aktif</td><td>Medium</td></tr><tr><td>US-16</td><td>Admin</td><td>memulihkan artikel dari arsip</td><td>tidak kehilangan data yang terhapus</td><td>Low</td></tr><tr><td>US-17</td><td>Admin</td><td>mengelola akun pengguna</td><td>mengatur akses pengguna sistem</td><td>Medium</td></tr></table>
+<hr>
+<p>3. Use Case</p>
+<p><strong>Tabel 3. Use Case Diagram — Actor dan Fungsi</strong></p>
+<table><tr><td>No</td><td>Aktor</td><td>Use Case / Fungsi</td></tr><tr><td>1</td><td>Pelanggan (Guest)</td><td>UC-01: Registrasi Akun</td></tr><tr><td>2</td><td>Pelanggan (Guest)</td><td>UC-02: Login</td></tr><tr><td>3</td><td>Pelanggan</td><td>UC-03: Melihat Katalog Produk</td></tr><tr><td>4</td><td>Pelanggan</td><td>UC-04: Memfilter Produk</td></tr><tr><td>5</td><td>Pelanggan</td><td>UC-05: Melihat Detail Produk</td></tr><tr><td>6</td><td>Pelanggan</td><td>UC-06: Menambah ke Keranjang</td></tr><tr><td>7</td><td>Pelanggan</td><td>UC-07: Mengelola Keranjang</td></tr><tr><td>8</td><td>Pelanggan</td><td>UC-08: Checkout</td></tr><tr><td>9</td><td>Pelanggan</td><td>UC-09: Memilih Metode Pengiriman</td></tr><tr><td>10</td><td>Pelanggan</td><td>UC-10: Memilih Metode Pembayaran</td></tr><tr><td>11</td><td>Pelanggan</td><td>UC-11: Melihat Riwayat Pesanan</td></tr><tr><td>12</td><td>Pelanggan</td><td>UC-12: Melihat Detail Pesanan</td></tr><tr><td>13</td><td>Pelanggan</td><td>UC-13: Membaca Artikel</td></tr><tr><td>14</td><td>Admin</td><td>UC-14: Login Admin</td></tr><tr><td>15</td><td>Admin</td><td>UC-15: Kelola Produk (CRUD)</td></tr><tr><td>16</td><td>Admin</td><td>UC-16: Kelola Artikel (CRUD + Arsip)</td></tr><tr><td>17</td><td>Admin</td><td>UC-17: Kelola Pesanan</td></tr><tr><td>18</td><td>Admin</td><td>UC-18: Kelola Pengguna (CRUD)</td></tr><tr><td>19</td><td>Admin</td><td>UC-19: Melihat Dashboard</td></tr></table>
+<hr>
+<p>4. Use Case Specification</p>
+<p><strong>Tabel 4. Use Case Specification — Login</strong></p>
+<table><tr><td>Item</td><td>Deskripsi</td></tr><tr><td>UC ID</td><td>UC-02</td></tr><tr><td>Nama</td><td>Login</td></tr><tr><td>Aktor</td><td>Pelanggan / Admin</td></tr><tr><td>Trigger</td><td>User mengakses halaman login</td></tr><tr><td>Pre-condition</td><td>User belum login</td></tr><tr><td>Basic Flow</td><td>1. User memasukkan email dan password</td></tr><tr><td></td><td>2. Sistem memvalidasi kredensial</td></tr><tr><td></td><td>3. Sistem mengarahkan berdasarkan role: Admin → Dashboard, Pelanggan → Koleksi</td></tr><tr><td>Alternative Flow</td><td>Jika kredensial salah, tampilkan pesan error</td></tr><tr><td>Post-condition</td><td>User masuk ke sistem sesuai role</td></tr></table>
+<p><strong>Tabel 5. Use Case Specification — Kelola Produk</strong></p>
+<table><tr><td>Item</td><td>Deskripsi</td></tr><tr><td>UC ID</td><td>UC-15</td></tr><tr><td>Nama</td><td>Kelola Produk</td></tr><tr><td>Aktor</td><td>Admin</td></tr><tr><td>Pre-condition</td><td>Admin sudah login</td></tr><tr><td>Basic Flow</td><td>1. Admin mengakses menu Produk</td></tr><tr><td></td><td>2. Admin melihat daftar produk</td></tr><tr><td></td><td>3. Admin menambah produk baru (nama, harga, brand, tipe, gender, deskripsi, gambar)</td></tr><tr><td></td><td>4. Admin mengedit produk yang ada</td></tr><tr><td></td><td>5. Admin menghapus produk</td></tr><tr><td>Post-condition</td><td>Data produk tersimpan/terupdate di database</td></tr></table>
+<p><strong>Tabel 6. Use Case Specification — Checkout</strong></p>
+<table><tr><td>Item</td><td>Deskripsi</td></tr><tr><td>UC ID</td><td>UC-08</td></tr><tr><td>Nama</td><td>Checkout</td></tr><tr><td>Aktor</td><td>Pelanggan (ter-autentikasi)</td></tr><tr><td>Pre-condition</td><td>Pelanggan sudah login dan keranjang tidak kosong</td></tr><tr><td>Basic Flow</td><td>1. Pelanggan membuka halaman checkout</td></tr><tr><td></td><td>2. Pilih metode pengiriman: Delivery (dengan alamat) atau Store Pickup</td></tr><tr><td></td><td>3. Jika Delivery: isi formulir alamat (Provinsi → Kota → Kecamatan → Kelurahan)</td></tr><tr><td></td><td>4. Pilih metode pembayaran (Virtual Account / Credit Card / QRIS)</td></tr><tr><td></td><td>5. Centang syarat dan ketentuan</td></tr><tr><td></td><td>6. Klik "Buat Pesanan"</td></tr><tr><td></td><td>7. Keranjang dikosongkan, pesanan tersimpan</td></tr><tr><td>Alternative Flow</td><td>Jika alamat tidak lengkap, tampilkan warning per field</td></tr><tr><td>Post-condition</td><td>Pesanan tersimpan dengan status 'P' (Pending)</td></tr></table>
+<p><strong>Tabel 7. Use Case Specification — Kelola Pesanan</strong></p>
+<table><tr><td>Item</td><td>Deskripsi</td></tr><tr><td>UC ID</td><td>UC-17</td></tr><tr><td>Nama</td><td>Kelola Pesanan</td></tr><tr><td>Aktor</td><td>Admin</td></tr><tr><td>Pre-condition</td><td>Admin sudah login</td></tr><tr><td>Basic Flow</td><td>1. Admin mengakses menu Pesanan</td></tr><tr><td></td><td>2. Admin melihat daftar pesanan (termasuk status badge P/CON/S/D/C)</td></tr><tr><td></td><td>3. Admin mengklik dropdown status untuk mengubah langsung</td></tr><tr><td></td><td>4. Admin bisa lihat detail pesanan lengkap</td></tr><tr><td>Post-condition</td><td>Status pesanan ter-update di database</td></tr></table>
+<hr>
+<p>BAB 2</p>
+<p>DESAIN SISTEM</p>
+<p>Desain sistem pada aplikasi CihuyFootwear mencakup perancangan struktur basis data, wireframe halaman utama, implementasi antarmuka pengguna (front-end), serta pengujian sistem. Desain sistem ini menggunakan pendekatan MVC (Model-View-Controller) yang diterapkan secara native oleh framework Laravel. View dirancang secara statis (tanpa framework JavaScript) dengan bantuan Blade template engine. Styling menggunakan kombinasi Bootstrap 5 untuk layout dasar dan CSS kustom untuk tampilan yang lebih spesifik sesuai identitas brand CihuyFootwear.</p>
+<hr>
+<p>1. Wireframe</p>
+<p>Wireframe dirancang menggunakan pendekatan Mobile-First Responsive Design dengan breakpoint utama pada 480px (mobile), 768px (tablet), dan 1024px (desktop). Berikut wireframe halaman utama:</p>
+<p>[Halaman Landing Page]</p>
+<p>+------------------------------------------+</p>
+<p>+------------------------------------------+------------------+</p>
+<p>+------------------------------------------+</p>
+<p>+------------------------------------------+</p>
+<p>+------------------------------------------+</p>
+<p>+------------------------------------------+</p>
+<p>+------------------------------------------+</p>
+<table><tr><td>HEADER: Logo</td><td>Search</td><td>Nav (Home, Koleksi,</td></tr><tr><td>Keranjang, Pesanan, Login)</td></tr><tr><td>HERO SECTION</td></tr><tr><td>"Temukan Sepatu Impianmu"</td></tr><tr><td>CTA: Lihat Koleksi</td><td>Baca Artikel</td></tr><tr><td>BRAND RECOMMENDATION (4 brand card)</td></tr><tr><td>PRODUK REKOMENDASI (4 product card)</td></tr><tr><td>ARTIKEL TERBARU (4 article card)</td></tr><tr><td>FOOTER (Brand, Kategori, Info, Akun)</td></tr></table>
+<p>[Halaman Koleksi]</p>
+<p>+----------+----------------------------------+</p>
+<p>+----------+----------------------------------+</p>
+<table><tr><td>SIDEBAR</td><td>JUDUL: Our Collection</td></tr><tr><td>Filter:</td><td>+------------------------------+</td></tr><tr><td>- Gender</td><td></td><td>[produk] [produk] [produk]</td></tr><tr><td>- Brand</td><td></td><td>[produk] [produk] [produk]</td></tr><tr><td>- Tipe</td><td></td><td>[produk] [produk] [produk]</td></tr><tr><td></td><td></td><td>[produk]</td></tr></table>
+<p>[Halaman Checkout - Step 1]</p>
+<p>+----------------------------------+</p>
+<p>+----------------------------------+</p>
+<p>+----------------------------------+</p>
+<table><tr><td>[Pengiriman] --- [Pembayaran]</td></tr><tr><td>Form: Email, Nama, Alamat, Kota</td></tr><tr><td>Dropdown Wilayah Indonesia</td></tr><tr><td>[    Go to Payment ->]</td></tr></table>
+<p>[Halaman Dashboard Admin]</p>
+<p>+--------+-----------------------------+</p>
+<p>| Dashboard|---------------------------+</p>
+<p>+--------+-----------------------------+</p>
+<table><tr><td>SIDEBAR</td><td>STAT CARDS (4 stat)</td></tr><tr><td>Produk</td><td>TABLE: Recent Orders</td></tr><tr><td>Artikel</td><td>ID</td><td>Status</td><td>Total</td></tr><tr><td>Pesanan</td><td>-------------------------</td></tr><tr><td>Logout</td><td>[action dropdown]</td></tr></table>
+<hr>
+<p>2. Front End</p>
+<p>Berikut penjelasan singkat setiap halaman beserta screenshoot hasil implementasi:</p>
+<p><strong>2.1 Landing Page</strong></p>
+<p>Landing page merupakan halaman utama yang diakses pengguna saat pertama kali mengunjungi situs. Halaman ini terdiri dari beberapa section:</p>
+<p>a. <strong>Hero Section</strong> — Menampilkan headline utama, tagline, serta dua tombol aksi (CTA): "Lihat Koleksi" dan "Baca Artikel". Hero section menggunakan background image dengan gradient overlay untuk keterbacaan teks.</p>
+<p>b. <strong>Brand Recommendation</strong> — Menampilkan 4 brand sepatu yang tersedia (Converse, Prabu, Hoka, Adidas, Nike, Redwing) dalam bentuk card grid responsive. Setiap card memiliki efek hover zoom pada gambar dan tombol aksi.</p>
+<p>c. <strong>Produk Rekomendasi</strong> — Menampilkan 4 produk sepatu pilihan dalam card layout dengan badge (Best Seller/New Arrival), gambar, nama, harga, dan tombol aksi.</p>
+<p>d. <strong>Featured Articles</strong> — Menampilkan 4 artikel terbaru dari blog dalam card layout dengan image, badge kategori (Trending/Terbaru), judul, excerpt, dan tombol "Baca Selengkapnya".</p>
+<p>e. <strong>Footer</strong> — Terdiri dari 4 kolom: informasi brand, kategori, informasi kontak, dan akun pengguna. Footer juga dilengkapi newsletter subscription dan social media links.</p>
+<p>Landing page sepenuhnya responsif, menggunakan CSS grid untuk brand/products/articles dan Flexbox untuk footer. Pada mobile, semua grid berubah menjadi 2 kolom (tablet) atau 1 kolom (mobile).</p>
+<hr>
+<p><strong>2.2 Koleksi Produk (Catalog)</strong></p>
+<p>Halaman koleksi menampilkan seluruh produk dengan fitur filter sidebar. Filter menggunakan radio button yang dapat dipilih dan di-unselect. Filter mencakup:</p>
+<li>Jenis Kelamin: Pria, Wanita, Anak-anak, Unisex</li>
+<li>Brand: Converse, Prabu, Hoka, Adidas, Nike, Redwing (data dinamis dari database)</li>
+<li>Jenis Sepatu: Sneakers, Leather, Olahraga (data dinamis dari database)</li>
+<p>Product grid menggunakan CSS Grid dengan `grid-template-columns: repeat(4, 1fr)` pada desktop, `repeat(3, 1fr)` pada tablet, dan `repeat(2, 1fr)` pada mobile. Setiap product card memiliki badge (Best Seller/New), gambar produk, nama, harga (format Rupiah), dan deskripsi singkat. Sidebar filter bersifat sticky pada desktop dan off-canvas drawer pada mobile.</p>
+<p>Fitur JavaScript pada halaman ini:</p>
+<li>Filter produk secara client-side (tanpa reload halaman)</li>
+<li>Reorder cards: produk yang sesuai filter muncul di posisi atas DOM</li>
+<li>Radio button toggle (click to select, click again to unselect)</li>
+<li>Mobile sidebar toggle dengan overlay backdrop</li>
+<hr>
+<p><strong>2.3 Detail Produk</strong></p>
+<p>Halaman detail produk menampilkan informasi lengkap satu produk meliputi:</p>
+<li>Gambar produk dengan badge</li>
+<li>Brand, nama produk, dan harga</li>
+<li>Rating bintang (5-star display statis)</li>
+<li>Selector ukuran (EU 38–49) dengan highlight aktif</li>
+<li>Kontrol jumlah (quantity +/-)</li>
+<li>Tombol "Add to Cart" dan "Buy Now"</li>
+<p>Fitur Add to Cart menggunakan AJAX (fetch API) untuk menambahkan produk ke session cart tanpa reload halaman, dengan toast notification sebagai konfirmasi. Fitur Buy Now menambahkan produk ke cart lalu langsung redirect ke halaman keranjang. Halaman ini dilengkapi breadcrumb navigasi dan tombol "Kembali" untuk navigasi kembali ke halaman sebelumnya. Bagian bawah halaman menampilkan daftar produk serupa (related products).</p>
+<hr>
+<p><strong>2.4 Keranjang Belanja</strong></p>
+<p>Halaman keranjang menampilkan seluruh item yang ditambahkan ke cart dengan informasi:</p>
+<li>Gambar produk, nama, brand, size, harga per item</li>
+<li>Kontrol quantity (+/-) dengan AJAX update</li>
+<li>Tombol hapus item dengan konfirmasi</li>
+<li>Subtotal per item (harga x quantity)</li>
+<li>Ringkasan total di panel kanan (sidebar pada desktop)</li>
+<li>Input kode diskon</li>
+<li>Tombol "Lanjut ke Checkout"</li>
+<p>Jika keranjang kosong, ditampilkan empty state dengan ilustrasi dan tombol "Mulai Belanja" yang mengarahkan ke halaman koleksi. Session cart dikelola sepenuhnya melalui Laravel session storage dengan key format `{barang_id}-{size}`.</p>
+<hr>
+<p><strong>2.5 Pembayaran (Checkout)</strong></p>
+<p>Halaman checkout menggunakan sistem dua langkah (two-step):</p>
+<p><strong>Step 1 — Pengiriman:</strong></p>
+<li>Toggle metode pengiriman: Delivery atau On The Store (Store Pickup)</li>
+<li>Jika Delivery: formulir alamat lengkap dengan dropdown bertingkat (Provinsi → Kota → Kecamatan → Kelurahan) yang terintegrasi dengan API wilayah Indonesia</li>
+<li>Jika Store Pickup: tampil notifikasi bahwa pesanan diambil di toko</li>
+<li>Formulir mencakup: Nama Depan, Nama Belakang, Alamat, Provinsi, Kota, Kecamatan, Kelurahan, Kode Pos, Nomor Telepon</li>
+<p><strong>Step 2 — Pembayaran:</strong></p>
+<li>Tiga metode pembayaran:</li>
+<li>Virtual Account (BCA, Mandiri, BNI, BRI)</li>
+<li>Credit Card (Visa, Mastercard, JCB)</li>
+<li>QRIS</li>
+<li>Checkbox persetujuan Syarat & Ketentuan</li>
+<li>Tombol "Buat Pesanan"</li>
+<p>Status pesanan menggunakan kode singkat: P (Pending), CON (Confirmed), S (Shipped), D (Delivered/Completed), C (Cancelled). Order number format: `ORD-YYYYMMDD-XXXX` (contoh: ORD-20260625-0001).</p>
+<hr>
+<p><strong>2.6 Riwayat Transaksi</strong></p>
+<p>Halaman history pesanan pelanggan menampilkan daftar seluruh pesanan yang pernah dibuat dengan informasi:</p>
+<li>Preview gambar produk (maksimal 3 thumbnail)</li>
+<li>Nomor pesanan (ORD-YYYYMMDD-XXXX)</li>
+<li>Tanggal dan jam pesanan</li>
+<li>Jumlah produk</li>
+<li>Alamat pengiriman (ringkasan)</li>
+<li>Status badge (warna berbeda untuk setiap status)</li>
+<li>Metode pembayaran</li>
+<li>Total pembayaran</li>
+<p>Setiap card pesanan bisa diklik untuk melihat detail pesanan lengkap.</p>
+<hr>
+<p><strong>2.7 Kelola Produk</strong></p>
+<p>Halaman admin untuk mengelola data produk sepatu. Fitur:</p>
+<li>Tabel daftar produk dengan kolom: No, Gambar, Nama, Brand, Harga, Type, Gender, Badge, Aksi (Edit/Hapus)</li>
+<li>Tombol "Tambah Produk" untuk menambah produk baru</li>
+<li>Form tambah/edit produk mencakup: Nama, Harga, Brand, Badge (Best Seller/New Arrival), Type, Gender, Deskripsi</li>
+<li>Konfirmasi hapus dengan JavaScript confirm dialog</li>
+<li>Soft delete tidak diterapkan pada produk (dihapus permanen)</li>
+<hr>
+<p><strong>2.8 Kelola Artikel</strong></p>
+<p>Halaman admin untuk mengelola artikel blog dengan fitur:</p>
+<li>Tabel daftar artikel dengan kolom: No, Gambar, Judul, Author, Kategori, Tanggal, Aksi</li>
+<li>Tombol "Tambah Artikel" dan "Arsip" pada header</li>
+<li>Form tambah/edit artikel mencakup: Judul, Konten, Gambar, Author, Kategori (Trending/Terbaru)</li>
+<li>Soft delete: tombol hapus memindahkan artikel ke halaman Arsip (bukan hapus permanen)</li>
+<p>Halaman Arsip Artikel menampilkan artikel yang sudah dihapus dengan dua aksi:</p>
+<li>Restore: memulihkan artikel ke daftar utama</li>
+<li>Delete Permanen: menghapus artikel dari database secara permanen</li>
+<hr>
+<p><strong>2.9 Kelola Pesanan</strong></p>
+<p>Halaman admin untuk mengelola pesanan pelanggan dengan fitur:</p>
+<li>Tabel daftar pesanan dengan kolom: No, No Pesanan, Pelanggan, Items, Status (dropdown), Total, Tanggal, Aksi</li>
+<li>Dropdown status inline yang bisa langsung diubah (auto-submit on change)</li>
+<li>Tombol lihat detail pesanan</li>
+<li>Halaman detail pesanan menampilkan informasi lengkap: produk yang dipesan, alamat pengiriman, ringkasan pembayaran</li>
+<li>Form update status di halaman detail</li>
+<hr>
+<p><strong>2.10 Kelola Pengguna</strong></p>
+<p>Halaman admin untuk mengelola akun pengguna dengan fitur:</p>
+<li>Tabel daftar pengguna dengan kolom: No, Username, Email, Role (badge Admin/Pelanggan), Terdaftar, Aksi</li>
+<li>Tombol "Tambah Pengguna"</li>
+<li>Form tambah/edit: Username, Email, Password, Role (Admin/Pelanggan)</li>
+<li>Proteksi: admin tidak bisa menghapus akun sendiri (tombol hapus dinonaktifkan)</li>
+<li>Password field opsional pada form edit (kosongkan jika tidak ingin mengubah password)</li>
+<hr>
+<p>3. Pengujian Sistem</p>
+<p>Pengujian sistem dilakukan secara fungsional dengan metode Black Box Testing, yaitu menguji setiap fitur berdasarkan requirement tanpa melihat kode sumber secara menyeluruh. Berikut ringkasan pengujian:</p>
+<table><tr><td>No</td><td>Fitur</td><td>Skenario Pengujian</td><td>Hasil</td></tr><tr><td>1</td><td>Login Pelanggan</td><td>Login dengan kredensial pelanggan, diarahkan ke koleksi</td><td>Berhasil</td></tr><tr><td>2</td><td>Login Admin</td><td>Login dengan kredensial admin, diarahkan ke dashboard</td><td>Berhasil</td></tr><tr><td>3</td><td>Filter Produk</td><td>Pilih filter gender/brand/type, produk difilter dan di-reorder</td><td>Berhasil</td></tr><tr><td>4</td><td>Uncheck Filter</td><td>Klik ulang radio button aktif, filter di-unselect</td><td>Berhasil</td></tr><tr><td>5</td><td>Add to Cart</td><td>Pilih ukuran → Add to Cart → toast notification</td><td>Berhasil</td></tr><tr><td>6</td><td>Buy Now</td><td>Pilih ukuran → Buy Now → redirect ke keranjang</td><td>Berhasil</td></tr><tr><td>7</td><td>Checkout Delivery</td><td>Isi alamat lengkap → Pilih pembayaran → Buat Pesanan</td><td>Berhasil</td></tr><tr><td>8</td><td>Checkout Store Pickup</td><td>Pilih On The Store → Langsung ke pembayaran → Buat Pesanan</td><td>Berhasil</td></tr><tr><td>9</td><td>Soft Delete Artikel</td><td>Hapus artikel → Muncul di Arsip</td><td>Berhasil</td></tr><tr><td>10</td><td>Restore Artikel</td><td>Restore dari Arsip → Kembali ke daftar</td><td>Berhasil</td></tr><tr><td>11</td><td>Update Status Pesanan</td><td>Ubah dropdown status inline → Status terupdate</td><td>Berhasil</td></tr><tr><td>12</td><td>CRUD Kelola Produk</td><td>Tambah/Edit/Hapus produk</td><td>Berhasil</td></tr><tr><td>13</td><td>CRUD Kelola Artikel</td><td>Tambah/Edit/Hapus + Arsip/Restore</td><td>Berhasil</td></tr><tr><td>14</td><td>CRUD Kelola Pengguna</td><td>Tambah/Edit/Hapus pengguna</td><td>Berhasil</td></tr><tr><td>15</td><td>Proteksi Hapus Diri Sendiri</td><td>Admin coba hapus akun sendiri</td><td>Ditolak, tampil pesan error</td></tr><tr><td>16</td><td>Responsif Mobile</td><td>Akses semua halaman via mobile viewport</td><td>Berhasil</td></tr><tr><td>17</td><td>Mobile Nav</td><td>Buka hamburger menu di mobile</td><td>Berhasil</td></tr></table>
+<hr>
+<p>LAMPIRAN</p>
+<p><strong>Link Logbook</strong> :</p>
+<p>https://github.com/Anshari06/logbook-cihuyfootwear</p>
+<p><strong>Link Project Repo</strong> :</p>
+<p>https://github.com/Anshari06/CihuyFootwear</p>
+<p><strong>Link Demo Live (Web Statis - Deployed)</strong> :</p>
+<p>http://cihuyfootwear.test</p>
+<p><strong>Link Video</strong> :</p>
+<p>https://drive.google.com/file/d/xxxxx/view</p>
+<hr>
+<p><em>Surabaya, Juni 2024</em></p>
+<p><em>Muhammad Anshari Shidqi — 434241075</em></p>
+</body>
+</html>

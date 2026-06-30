@@ -19,6 +19,7 @@
         <nav class="nav-links">
             <a href="{{ route('landing') }}"><i class="bi bi-house-door"></i> Home</a>
             <a href="{{ route('collection') }}"><i class="bi bi-grid-3x3-gap"></i> Koleksi</a>
+            <a href="{{ route('artikel.index') }}"><i class="bi bi-newspaper"></i> Artikel</a>
             <a href="{{ route('keranjang') }}"><i class="bi bi-cart3"></i> Keranjang</a>
             <a href="{{ route('history') }}"><i class="bi bi-clock-history"></i> Pesanan</a>
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -46,6 +47,9 @@
         </a>
         <a href="{{ route('collection') }}" onclick="closeMobileNav()">
             <i class="bi bi-grid-3x3-gap"></i> Koleksi
+        </a>
+        <a href="{{ route('artikel.index') }}" onclick="closeMobileNav()">
+            <i class="bi bi-newspaper"></i> Artikel
         </a>
         <a href="{{ route('keranjang') }}" onclick="closeMobileNav()">
             <i class="bi bi-cart3"></i> Keranjang

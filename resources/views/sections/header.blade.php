@@ -14,15 +14,21 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('landing') }}">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('landing') }}#brand-recommendation">Brand</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('landing') }}#recommended-products">Katalog</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('landing') }}#featured-articles">Artikel</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('artikel.index') }}">Artikel</a></li>
           @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
           @else
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('collection') }}">Katalog</a>
+              <a class="nav-link" href="{{ route('collection') }}"><i class="bi bi-grid-3x3-gap me-1"></i> Katalog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+              <a class="nav-link" href="{{ route('keranjang') }}"><i class="bi bi-cart3 me-1"></i> Keranjang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('history') }}"><i class="bi bi-clock-history me-1"></i> Pesanan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right me-1"></i> Logout</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
                 @csrf
               </form>

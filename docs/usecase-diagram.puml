@@ -1,0 +1,127 @@
+@startuml CihuyFootwear_UseCase
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+
+title Use Case Diagram - CihuyFootwear
+
+' ============== ACTORS ==============
+' Customer --|> Guest = inheritance semantics
+' Customer MEWARISI kemampuan Guest (bisa register/login)
+' Admin adalah actor terpisah dengan Login Admin sendiri
+actor "Pelanggan (Guest)" as Guest
+actor Pelanggan as Customer
+actor Admin as Admin
+
+Customer --|> Guest : <<extends>>\n(inherits all\nGuest actions)
+
+' ============== SYSTEM BOUNDARY ==============
+rectangle "CihuyFootwear System" {
+
+  ' ---------- GUEST USE CASES ----------
+  usecase "UC-01\nRegistrasi Akun" as UC01
+  usecase "UC-02\nLogin" as UC02
+
+  ' ---------- CUSTOMER USE CASES ----------
+  usecase "UC-03\nMelihat Katalog Produk" as UC03
+  usecase "UC-04\nMemfilter Produk" as UC04
+  usecase "UC-05\nMelihat Detail Produk" as UC05
+  usecase "UC-06\nMenambah ke Keranjang" as UC06
+  usecase "UC-07\nMengelola Keranjang" as UC07
+  usecase "UC-08\nCheckout" as UC08
+  usecase "UC-09\nMemilih Metode Pengiriman" as UC09
+  usecase "UC-10\nMemilih Metode Pembayaran" as UC10
+  usecase "UC-11\nMelihat Riwayat Pesanan" as UC11
+  usecase "UC-12\nMelihat Detail Pesanan" as UC12
+  usecase "UC-13\nMembaca Artikel" as UC13
+
+  ' ---------- ADMIN USE CASES ----------
+  usecase "UC-14\nLogin Admin" as UC14
+  usecase "UC-15\nKelola Produk\n(CRUD)" as UC15
+  usecase "UC-16\nKelola Artikel\n(CRUD + Arsip)" as UC16
+  usecase "UC-17\nKelola Pesanan" as UC17
+  usecase "UC-18\nKelola Pengguna\n(CRUD)" as UC18
+  usecase "UC-19\nMelihat Dashboard" as UC19
+
+  ' ---------- INTERNAL RELATIONSHIPS (dalam system) ----------
+
+  ' Checkout FLOW: UC-08 INCLUDES UC-09 and UC-10
+  ' (Checkout SELALU memerlukan pemilihan pengiriman & pembayaran)
+  UC08 ..> UC09 : <<include>>
+  UC08 ..> UC10 : <<include>>
+}
+
+' ============== ACTOR-to-USE CASE ASSOCIATIONS ==============
+
+' ----- GUEST -----
+Guest --> UC01
+Guest --> UC02
+Guest --> UC13 : (guest can read\narticles without login)
+
+' ----- CUSTOMER (authenticated) -----
+Customer --> UC03
+Customer --> UC04
+Customer --> UC05
+Customer --> UC06
+Customer --> UC07
+Customer --> UC08
+Customer --> UC09
+Customer --> UC10
+Customer --> UC11
+Customer --> UC12
+Customer --> UC13
+
+' ----- ADMIN -----
+Admin --> UC14
+Admin --> UC15
+Admin --> UC16
+Admin --> UC17
+Admin --> UC18
+Admin --> UC19
+
+' ---------- CROSS-BOUNDARY INCLUDE DEPENDENCIES ----------
+
+' Admin requires login before any management action
+UC15 ..> UC14 : <<include>>
+UC16 ..> UC14 : <<include>>
+UC17 ..> UC14 : <<include>>
+UC18 ..> UC14 : <<include>>
+UC19 ..> UC14 : <<include>>
+
+' Cart & Checkout flow (UC-06 → UC-07 → UC-08)
+' Add to Cart triggers Manage Cart, then Checkout
+UC06 ..> UC07 : <<include>>
+UC07 ..> UC08 : <<include>>
+
+note bottom of UC06
+  UC-06 Add to Cart dipicu dari
+  halaman Detail Produk (UC-05)
+  lalu mengalir ke UC-07 & UC-08
+end note
+
+note bottom of UC13
+  UC-13 Artikel dapat diakses
+  oleh GUEST maupun CUSTOMER
+  tanpa perlu login
+end note
+
+note bottom of UC03
+  UC-03 Katalog Produk wymrlukan
+  login (middleware: auth+pelanggan).
+  UC-04 Filter & UC-05 Detail
+  dapat diakses setelah login
+end note
+
+note bottom of UC14
+  UC-14 Login Admin adalah
+  <<include>> untuk semua fitur
+  manajemen Admin (UC-15 s/d UC-19)
+end note
+
+note right of UC08
+  UC-08 Checkout <<includes>>:
+  • UC-09 Memilih Metode Pengiriman
+  • UC-10 Memilih Metode Pembayaran
+end note
+
+@enduml

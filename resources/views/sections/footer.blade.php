@@ -36,18 +36,17 @@
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">How To Order</a></li>
           <li><a href="#">Size Guide</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="{{ route('artikel.index') }}">Blog</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h6>Account</h6>
         <ul>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Wishlist</a></li>
-          <li><a href="#">Order History</a></li>
-          <li><a href="#">Track Order</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('register') }}">Register</a></li>
+          <li><a href="{{ route('history') }}">Order History</a></li>
+          <li><a href="{{ route('history') }}">Track Order</a></li>
         </ul>
       </div>
     </div>
