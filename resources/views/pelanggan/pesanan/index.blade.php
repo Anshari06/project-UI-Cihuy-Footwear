@@ -57,15 +57,15 @@
                         <div class="col-md-2 text-center">
                             <span class="history-status-badge status-{{ $p->status }}">
                                 @if ($p->status === 'P')
-                                    <i class="bi bi-clock me-1"></i>P
+                                    <i class="bi bi-clock me-1"></i>Pending
                                 @elseif($p->status === 'CON')
-                                    <i class="bi bi-check-circle me-1"></i>CON
+                                    <i class="bi bi-check-circle me-1"></i>Confirmed
                                 @elseif($p->status === 'S')
-                                    <i class="bi bi-truck me-1"></i>S
+                                    <i class="bi bi-truck me-1"></i>Shipped
                                 @elseif($p->status === 'D')
-                                    <i class="bi bi-bag-check me-1"></i>D
+                                    <i class="bi bi-bag-check me-1"></i>Delivered
                                 @elseif($p->status === 'C')
-                                    <i class="bi bi-x-circle me-1"></i>C
+                                    <i class="bi bi-x-circle me-1"></i>Canceled
                                 @endif
                             </span>
                         </div>

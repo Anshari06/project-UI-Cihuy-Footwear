@@ -18,9 +18,9 @@
                     <span class="article-category-badge">{{ $artikel->category === 'trending' ? 'Trending' : 'Terbaru' }}</span>
                     <h1 class="fw-bold mt-3 mb-3" style="color: #2b2b2b; font-size: 32px; line-height: 1.3;">{{ $artikel->title }}</h1>
                     <div class="article-meta">
-                        <span><i class="bi bi-person me-1"></i>{{ $artikel->author ?? 'Admin' }}</span>
+                        <i class="bi bi-person me-1"></i>{{ $artikel->author ?? 'Admin' }}
                         <span class="mx-3">•</span>
-                        <span><i class="bi bi-calendar me-1"></i>{{ \Carbon\Carbon::parse($artikel->published_at)->format('d M Y') }}</span>
+                        <i class="bi bi-calendar me-1"></i>{{ \Carbon\Carbon::parse($artikel->published_at)->format('d M Y') }}
                     </div>
                 </div>
 
@@ -41,13 +41,14 @@
                 </div>
 
                 <!-- Share / Back CTA -->
-                <div class="article-cta mt-5 pt-4 animate-on-scroll" style="border-top: 1px solid #e6e0da;">
+                <div class="mt-5 pt-4 animate-on-scroll" style="border-top: 1px solid #e6e0da;">
                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                         <a href="{{ route('artikel.index') }}" class="btn" style="background: #efece5; color: #2b2b2b; border-radius: 8px; font-weight: 600; padding: 10px 20px;">
                             <i class="bi bi-arrow-left me-1"></i> Semua Artikel
                         </a>
-                        <div class="share-label" style="color: #7a746f; font-size: 13px;">
-                            Bagikan: <i class="bi bi-twitter-x ms-2" style="cursor: pointer;"></i>
+                        <div style="color: #7a746f; font-size: 13px;">
+                            Bagikan:
+                            <i class="bi bi-twitter-x ms-2" style="cursor: pointer;"></i>
                             <i class="bi bi-facebook ms-2" style="cursor: pointer;"></i>
                             <i class="bi bi-instagram ms-2" style="cursor: pointer;"></i>
                         </div>
@@ -64,7 +65,7 @@
             <div class="row g-4">
                 @foreach($related as $r)
                     <div class="col-md-4 animate-on-scroll">
-                        <a href="{{ route('artikel.show', $r->slug) }}" class="text-decoration-none">
+                        <a href="{{ route('artikel.show', $r->slug) }}" class="text-decoration-none d-block">
                             <div class="related-card">
                                 <div class="related-img">
                                     @if($r->image)
@@ -89,101 +90,3 @@
     </div>
 </main>
 @endsection
-
-@push('styles')
-<style>
-    .article-category-badge {
-        display: inline-block;
-        background: #efece5;
-        color: #2b2b2b;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 5px 14px;
-        border-radius: 20px;
-        letter-spacing: 0.5px;
-    }
-    .article-meta {
-        font-size: 13px;
-        color: #7a746f;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .article-content {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #2b2b2b;
-    }
-    .article-content p {
-        margin-bottom: 1.2rem;
-    }
-    .article-content h2,
-    .article-content h3 {
-        color: #2b2b2b;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-    .article-content img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 1rem 0;
-    }
-    .article-content ul,
-    .article-content ol {
-        padding-left: 1.5rem;
-        margin-bottom: 1.2rem;
-    }
-    .article-content blockquote {
-        border-left: 4px solid #e6e0da;
-        padding-left: 1.2rem;
-        color: #7a746f;
-        font-style: italic;
-        margin: 1.5rem 0;
-    }
-    .related-card {
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid #e6e0da;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .related-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-    .related-img {
-        height: 150px;
-        overflow: hidden;
-    }
-    .related-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-    .related-card:hover .related-img img {
-        transform: scale(1.05);
-    }
-    .related-body {
-        padding: 16px;
-    }
-    .related-badge {
-        display: inline-block;
-        background: #efece5;
-        color: #2b2b2b;
-        font-size: 10px;
-        font-weight: 700;
-        padding: 3px 8px;
-        border-radius: 20px;
-        letter-spacing: 0.5px;
-        margin-bottom: 6px;
-    }
-    .related-title {
-        font-size: 14px;
-        font-weight: 700;
-        color: #2b2b2b;
-        line-height: 1.4;
-        margin-bottom: 4px;
-    }
-</style>
-@endpush

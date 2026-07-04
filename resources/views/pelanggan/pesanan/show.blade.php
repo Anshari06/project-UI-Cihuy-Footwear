@@ -21,15 +21,15 @@
             <div class="detail-label">Status</div>
             <div class="status-badge status-{{ $pesanan->status }}">
                 @if($pesanan->status === 'P')
-                    <i class="bi bi-clock me-1"></i>P
+                    <i class="bi bi-clock me-1"></i>Pending
                 @elseif($pesanan->status === 'CON')
-                    <i class="bi bi-check-circle me-1"></i>CON
+                    <i class="bi bi-check-circle me-1"></i>Confirmed
                 @elseif($pesanan->status === 'S')
-                    <i class="bi bi-truck me-1"></i>S
+                    <i class="bi bi-truck me-1"></i>Shipped
                 @elseif($pesanan->status === 'D')
-                    <i class="bi bi-bag-check me-1"></i>D
+                    <i class="bi bi-bag-check me-1"></i>Delivered
                 @elseif($pesanan->status === 'C')
-                    <i class="bi bi-x-circle me-1"></i>C
+                    <i class="bi bi-x-circle me-1"></i>Canceled
                 @endif
             </div>
         </div>
